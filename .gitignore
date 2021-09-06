@@ -10,6 +10,7 @@
 /libs
 /logs
 dist/
+out/
 # Only exists if Bazel was run
 /bazel-out
 
