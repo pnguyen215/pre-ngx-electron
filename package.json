@@ -1,15 +1,20 @@
 {
-  "name": "pre-ngx-electron-prototype",
+  "name": "pre-ngx-electron",
   "version": "7.1.7",
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
-    "start": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng serve --open --port 4202",
-    "build": "ng build --prod --aot --vendor-chunk --common-chunk --output-path pre-ngx-electron --buildOptimizer",
-    "deploy": "ng build --prod --output-path pre-ngx-electron && firebase deploy",
+    "start": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng serve --open --port 4111",
+    "build": "ng build --prod --aot --vendor-chunk --common-chunk --output-path dist --buildOptimizer",
+    "build:dev": "ng build --aot --vendor-chunk --common-chunk --output-path dist --buildOptimizer",
+    "deploy": "ng build --prod --output-path dist && firebase deploy",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "rtl": "webpack --config webpack-rtl.config.js"
+    "rtl": "webpack --config webpack-rtl.config.js",
+    "electron": "electron .",
+    "electron-build:prod": "ng build --prod --aot --vendor-chunk --common-chunk --output-path dist --buildOptimizer && electron .",
+    "electron-build:dev": "ng build --aot --vendor-chunk --common-chunk --output-path dist --buildOptimizer && electron ."
   },
   "private": true,
   "dependencies": {
@@ -62,6 +67,7 @@
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "^14.11.10",
     "codelyzer": "^6.0.1",
+    "electron": "^14.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~6.0.0",
     "karma": "~5.2.3",

@@ -9,6 +9,7 @@
 /pre-ngx-electron
 /libs
 /logs
+dist/
 # Only exists if Bazel was run
 /bazel-out
 
